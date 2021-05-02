@@ -1,0 +1,27 @@
+<html>
+
+<head>
+	<script type="module" src="index.js"></script>
+</head>
+<!-- xyzCalibration_cube.stl -->
+
+<body>
+	<model-viewer-pq auto-rotate src="http://localhost:6006/xyzCalibration_cube.stl"></model-viewer-pq>
+
+	<input type="file" />
+
+	<script>
+		window.addEventListener('load', function () {
+			const $el = document.querySelector("model-viewer-pq");
+			const $input = document.querySelector("[type=file]");
+
+			$input.onchange = function (e) {
+				const res = e.target.files[0];
+				const url = URL.createObjectURL(res);
+				$el.src = url;
+			}
+		});
+	</script>
+</body>
+
+</html>
